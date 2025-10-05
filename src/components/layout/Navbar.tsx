@@ -443,10 +443,10 @@ const NavLink: React.FC<NavLinkProps> = ({
   label,
   isActive
 }) => {
-  return <a href={href} className={`px-4 py-2 mx-1 rounded-md transition-all duration-300 relative font-medium text-sm nav-link ${isActive ? 'text-indigo-400 dark:text-[#CFAF61]' : 'text-gray-200 hover:text-indigo-400 dark:hover:text-[#CFAF61]'}`}>
+  return <Link to={href} className={`px-4 py-2 mx-1 rounded-md transition-all duration-300 relative font-medium text-sm nav-link ${isActive ? 'text-indigo-400 dark:text-[#CFAF61]' : 'text-gray-200 hover:text-indigo-400 dark:hover:text-[#CFAF61]'}`}>
       {label}
       {isActive && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 to-violet-500 dark:from-[#CFAF61] dark:to-[#B79A46]"></span>}
-    </a>;
+    </Link>;
 };
 interface MobileNavLinkProps extends NavLinkProps {
   onClick: () => void;
@@ -457,7 +457,7 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({
   isActive,
   onClick
 }) => {
-  return <a href={href} className={`block py-2 px-3 rounded-md text-sm ${isActive ? 'bg-indigo-900/30 dark:bg-[#CFAF61]/20 text-indigo-400 dark:text-[#CFAF61] font-medium' : 'text-gray-200 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10'}`} onClick={onClick}>
+  return <Link to={href} onClick={onClick} className={`block py-2 px-3 rounded-md text-sm ${isActive ? 'bg-indigo-900/30 dark:bg-[#CFAF61]/20 text-indigo-400 dark:text-[#CFAF61] font-medium' : 'text-gray-200 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10'}`}>
       {label}
-    </a>;
+    </Link>;
 };
