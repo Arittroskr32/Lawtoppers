@@ -3,15 +3,11 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotifications } from '../../contexts/NotificationContext';
-import { SunIcon, MoonIcon, GlobeIcon, MenuIcon, XIcon, ChevronDownIcon, BellIcon, UserIcon, LogOutIcon, SettingsIcon, BookmarkIcon, GraduationCapIcon, ClipboardListIcon, InfoIcon, AlertCircleIcon, CheckCircleIcon, AlertTriangleIcon, XCircleIcon, SearchIcon } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { SunIcon, MoonIcon, MenuIcon, XIcon, ChevronDownIcon, BellIcon, UserIcon, LogOutIcon, SettingsIcon, BookmarkIcon, GraduationCapIcon, ClipboardListIcon, InfoIcon, CheckCircleIcon, AlertTriangleIcon, XCircleIcon, SearchIcon } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 export const Navbar: React.FC = () => {
-  const {
-    t,
-    toggleLanguage,
-    language
-  } = useLanguage();
+  // const { t, toggleLanguage, language } = useLanguage();
   const {
     theme,
     toggleTheme
@@ -154,10 +150,10 @@ export const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo on the left */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <img src="/lawtopper_logo_new.png" alt="LAWTOPPERS Logo" className="w-12 h-12 object-contain rounded-lg shadow-md shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300" />
             <span className="text-2xl font-bold text-white">LAWTOPPERS</span>
-          </a>
+          </Link>
         </div>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-1">
