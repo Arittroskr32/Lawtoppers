@@ -171,15 +171,15 @@ export const Navbar: React.FC = () => {
               <ChevronDownIcon className={`w-4 h-4 ml-1 transition-transform ${isCoursesDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             {isCoursesDropdownOpen && <div className="absolute top-full left-0 mt-1 w-48 bg-white dark:bg-[#0A2342] rounded-md shadow-lg border border-gray-200 dark:border-gray-700 z-50 overflow-hidden animate-fadeIn">
-                <a href="/courses/law-academic" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
+                <Link to="/courses/law-academic" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
                   Law Academic
-                </a>
-                <a href="/courses/bar" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
+                </Link>
+                <Link to="/courses/bar" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
                   BAR
-                </a>
-                <a href="/courses/bjs" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
+                </Link>
+                <Link to="/courses/bjs" className="block px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-indigo-50 dark:hover:bg-[#CFAF61]/20">
                   BJS
-                </a>
+                </Link>
               </div>}
           </div>
           <NavLink href="/exam-batch" label="Exam Batch" isActive={activeLink === 'exam-batch'} />
@@ -268,9 +268,9 @@ export const Navbar: React.FC = () => {
                           </div>)}
                     </div>
                     {notifications.length > 0 && <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-center">
-                        <a href="/notifications" className="text-xs text-indigo-600 dark:text-[#CFAF61] hover:underline">
+                        <Link to="/notifications" className="text-xs text-indigo-600 dark:text-[#CFAF61] hover:underline">
                           View all notifications
-                        </a>
+                        </Link>
                       </div>}
                   </div>}
               </div>
@@ -288,26 +288,26 @@ export const Navbar: React.FC = () => {
                         {user?.email || 'john.doe@example.com'}
                       </p>
                     </div>
-                    <a href="/profile" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <Link to="/profile" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                       <UserIcon className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
                       Profile Page
-                    </a>
-                    <a href="/my-courses" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </Link>
+                    <Link to="/my-courses" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                       <GraduationCapIcon className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
                       My Courses
-                    </a>
-                    <a href="/my-exam-batches" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </Link>
+                    <Link to="/my-exam-batches" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                       <ClipboardListIcon className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
                       My Exam Batches
-                    </a>
-                    <a href="/saved-questions" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </Link>
+                    <Link to="/saved-questions" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                       <BookmarkIcon className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
                       Saved Questions / Bookmarks
-                    </a>
-                    <a href="/account-settings" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </Link>
+                    <Link to="/account-settings" className="flex items-center px-4 py-2.5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                       <SettingsIcon className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
                       Account Settings
-                    </a>
+                    </Link>
                     <button onClick={handleLogout} className="w-full flex items-center px-4 py-2.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 border-t border-gray-200 dark:border-gray-700">
                       <LogOutIcon className="w-4 h-4 mr-2" />
                       Logout
@@ -333,15 +333,15 @@ export const Navbar: React.FC = () => {
                 <ChevronDownIcon className={`w-4 h-4 transition-transform ${isCoursesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               {isCoursesDropdownOpen && <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-700 dark:border-[#CFAF61]/40 pl-2">
-                  <a href="/courses/law-academic" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
+                  <Link to="/courses/law-academic" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
                     Law Academic
-                  </a>
-                  <a href="/courses/bar" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
+                  </Link>
+                  <Link to="/courses/bar" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
                     BAR
-                  </a>
-                  <a href="/courses/bjs" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
+                  </Link>
+                  <Link to="/courses/bjs" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md" onClick={() => setIsMenuOpen(false)}>
                     BJS
-                  </a>
+                  </Link>
                 </div>}
             </div>
             <MobileNavLink href="/exam-batch" label="Exam Batch" isActive={activeLink === 'exam-batch'} onClick={() => setIsMenuOpen(false)} />
@@ -409,25 +409,25 @@ export const Navbar: React.FC = () => {
                               </div>
                             </div>
                           </div>)}
-                      <a href="/notifications" className="block text-center text-xs text-indigo-400 dark:text-[#CFAF61] hover:underline mt-1">
+                      <Link to="/notifications" className="block text-center text-xs text-indigo-400 dark:text-[#CFAF61] hover:underline mt-1">
                         View all notifications
-                      </a>
+                      </Link>
                     </div>}
-                  <a href="/profile" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
+                  <Link to="/profile" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
                     Profile Page
-                  </a>
-                  <a href="/my-courses" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
+                  </Link>
+                  <Link to="/my-courses" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
                     My Courses
-                  </a>
-                  <a href="/my-exam-batches" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
+                  </Link>
+                  <Link to="/my-exam-batches" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
                     My Exam Batches
-                  </a>
-                  <a href="/saved-questions" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
+                  </Link>
+                  <Link to="/saved-questions" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
                     Saved Questions / Bookmarks
-                  </a>
-                  <a href="/account-settings" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
+                  </Link>
+                  <Link to="/account-settings" className="block py-2 px-3 text-gray-300 hover:bg-gray-800 dark:hover:bg-[#CFAF61]/10 rounded-md">
                     Account Settings
-                  </a>
+                  </Link>
                   <button onClick={handleLogout} className="w-full mt-1 flex items-center justify-center py-2 px-3 text-red-400 bg-red-900/10 hover:bg-red-900/20 rounded-md">
                     <LogOutIcon className="w-4 h-4 mr-2" />
                     Logout
