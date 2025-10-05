@@ -1,10 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-// Force /# in the URL on initial load if not present
-useEffect(() => {
-  if (window.location.pathname === '/' && window.location.hash === '') {
-    window.location.replace('/#');
-  }
-}, []);
+// Note: avoid calling hooks at module scope — hook usage must be inside components
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
