@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { App } from './App';
 import CoursesLawAcademic from './pages/CoursesLawAcademic';
 import CoursesBAR from './pages/CoursesBAR';
@@ -12,8 +12,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CourseDetails from './pages/CourseDetails';
 import CoursePreview from './pages/CoursePreview';
+
 export function AppRouter() {
-  return <BrowserRouter>
+  return (
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/courses/law-academic" element={<CoursesLawAcademic />} />
@@ -28,5 +30,6 @@ export function AppRouter() {
         <Route path="/course-details/:courseId" element={<CourseDetails />} />
         <Route path="/course/preview" element={<CoursePreview />} />
       </Routes>
-    </BrowserRouter>;
+    </HashRouter>
+  );
 }
