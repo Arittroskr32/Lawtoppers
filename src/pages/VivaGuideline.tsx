@@ -161,10 +161,10 @@ const VivaGuideline: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2">
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900 leading-tight">
-                আপনার মৌখিক পরীক্ষা আত্মবিশ্বাসের সঙ্গে জয় করুন
+                আপনার ভাইভা পরীক্ষা আত্মবিশ্বাসের সঙ্গে জয় করুন
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-xl">
-                মৌখিক পরীক্ষা পরীক্ষার মুখোমুখি হওয়া আইন শিক্ষার্থীদের জন্য ধাপে ধাপে নির্দেশিকা, প্রস্তুতির কৌশল এবং বিশেষজ্ঞ টিপস।
+                ভাইভা পরীক্ষা পরীক্ষার মুখোমুখি হওয়া আইন শিক্ষার্থীদের জন্য ধাপে ধাপে নির্দেশিকা, প্রস্তুতির কৌশল এবং বিশেষজ্ঞ টিপস।
               </p>
               <div className="flex flex-wrap gap-4">
                 <button className="px-8 py-4 bg-[#1E3A8A] text-white font-medium rounded-md hover:bg-[#1E3A8A]/90 hover:shadow-lg shadow-md transition-all duration-300 flex items-center group">
