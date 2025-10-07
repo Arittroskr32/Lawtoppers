@@ -198,11 +198,10 @@ const JobPreparation: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900 leading-tight">
-              Job Preparation for Law Aspirants
+              ল’ অ্যাসপিরেন্টদের জন্য জব প্রিপারেশন
             </h1>
             <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-              Structured courses, expert mentorship, and practice resources to
-              help you excel in law-related careers.
+              আইন-সংক্রান্ত ক্যারিয়ারে সফল হতে সাহায্য করবে আমাদের সুশৃঙ্খল কোর্স, বিশেষজ্ঞ পরামর্শ এবং প্র্যাকটিস রিসোর্স।
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button className="px-8 py-4 bg-[#1E3A8A] text-white font-medium rounded-md hover:shadow-lg transition-all duration-300 flex items-center group">

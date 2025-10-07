@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { ChevronDownIcon, ChevronUpIcon, HelpCircleIcon, SearchIcon } from 'lucide-react';
+import { ChevronDownIcon, ChevronUpIcon, HelpCircleIcon } from 'lucide-react';
 interface FAQItemProps {
   question: string;
   answer: string;
@@ -45,7 +45,7 @@ export const FAQSection: React.FC = () => {
   } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  // Removed searchQuery state as search bar is deleted
   const [isVisible, setIsVisible] = useState(false);
   const [animating, setAnimating] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -126,7 +126,7 @@ export const FAQSection: React.FC = () => {
     answer: 'We accept various payment methods including credit/debit cards, mobile banking, and bank transfers. All transactions are secure and encrypted.',
     category: 'payment'
   }];
-  const filteredFaqs = faqs.filter(faq => (activeCategory === 'all' || faq.category === activeCategory) && (searchQuery === '' || faq.question.toLowerCase().includes(searchQuery.toLowerCase())));
+  const filteredFaqs = faqs.filter(faq => (activeCategory === 'all' || faq.category === activeCategory));
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -149,20 +149,20 @@ export const FAQSection: React.FC = () => {
             services
           </p>
         </div>
-        {/* Search and Filter */}
+        {/* Filter Only, Centered */}
         <div className={`max-w-3xl mx-auto mb-8 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-1 group">
-              <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-hover:text-indigo-500 transition-colors duration-300" />
-              <input type="text" placeholder="Search questions..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 dark:text-gray-100 group-hover:border-indigo-300 dark:group-hover:border-indigo-700" />
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 group-hover:w-full transition-all duration-500 ease-in-out"></div>
-            </div>
-            <div className="flex overflow-x-auto gap-2 pb-2 md:pb-0">
-              {categories.map((category, index) => <button key={category.id} onClick={() => handleCategoryChange(category.id)} className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-300 relative overflow-hidden ${activeCategory === category.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md' : 'bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-800'}`} disabled={animating}>
-                  <span className="relative z-10">{category.name}</span>
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-600 to-purple-600 scale-x-0 origin-left transition-transform duration-300 hover:scale-x-100 -z-10"></span>
-                </button>)}
-            </div>
+          <div className="flex justify-center gap-2 flex-wrap">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-300 relative overflow-hidden ${activeCategory === category.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md' : 'bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
+                disabled={animating}
+              >
+                <span className="relative z-10">{category.name}</span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-600 to-purple-600 scale-x-0 origin-left transition-transform duration-300 hover:scale-x-100 -z-10"></span>
+              </button>
+            ))}
           </div>
         </div>
         {/* FAQ Items */}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { ChevronDownIcon, BookIcon, ClockIcon, UsersIcon, BadgeIcon, StarIcon, ArrowRightIcon, SearchIcon, FilterIcon, XIcon, LayoutGridIcon, ListIcon, CheckCircleIcon } from 'lucide-react';
+import { ChevronDownIcon, BookIcon, ClockIcon, UsersIcon, BadgeIcon, StarIcon, ArrowRightIcon, FilterIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 export const CoursesSection: React.FC = () => {
   const {
@@ -12,13 +12,13 @@ export const CoursesSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animating, setAnimating] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // ...existing code...
   const [transitionState, setTransitionState] = useState<'idle' | 'exit' | 'enter' | 'sliding'>('idle');
   const [pendingFilter, setPendingFilter] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  // ...existing code...
   const navigate = useNavigate();
   // Intersection Observer for scroll reveal animation
   useEffect(() => {
@@ -35,12 +35,7 @@ export const CoursesSection: React.FC = () => {
     }
     return () => observer.disconnect();
   }, []);
-  // Focus search input when opened
-  useEffect(() => {
-    if (isSearchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [isSearchOpen]);
+  // ...existing code...
   // Handle transition phases
   useEffect(() => {
     if (transitionState === 'exit') {
@@ -84,23 +79,28 @@ export const CoursesSection: React.FC = () => {
       setPendingFilter(category);
     }
   };
-  const categories = [{
-    id: 'all',
-    name: t('courses.all'),
-    icon: <FilterIcon className="w-4 h-4" />
-  }, {
-    id: 'civil',
-    name: t('courses.civil'),
-    icon: <BookIcon className="w-4 h-4" />
-  }, {
-    id: 'criminal',
-    name: t('courses.criminal'),
-    icon: <BookIcon className="w-4 h-4" />
-  }, {
-    id: 'constitutional',
-    name: t('courses.constitutional'),
-    icon: <BookIcon className="w-4 h-4" />
-  }];
+  const categories = [
+    {
+      id: 'all',
+      name: 'All Courses',
+      icon: <FilterIcon className="w-4 h-4" />
+    },
+    {
+      id: 'law-academic',
+      name: 'Law Academic',
+      icon: <BookIcon className="w-4 h-4" />
+    },
+    {
+      id: 'bar',
+      name: 'BAR',
+      icon: <BookIcon className="w-4 h-4" />
+    },
+    {
+      id: 'bjs',
+      name: 'BJS',
+      icon: <BookIcon className="w-4 h-4" />
+    }
+  ];
   const courses = [{
     id: 1,
     title: 'Civil Procedure Code',
@@ -222,13 +222,7 @@ export const CoursesSection: React.FC = () => {
   const handleEnroll = (courseId: number) => {
     navigate(`/course-details/${courseId}`);
   };
-  // Handle search toggle
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (isSearchOpen) {
-      setSearchTerm('');
-    }
-  };
+  // ...existing code...
   return <section id="courses" className="relative py-16 overflow-hidden" ref={sectionRef}>
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
@@ -245,36 +239,24 @@ export const CoursesSection: React.FC = () => {
             you excel in your legal career
           </p>
         </div>
-        {/* Search and Filter Bar - Matching QuestionBankSection layout */}
-        <div className={`flex flex-col md:flex-row gap-4 mb-8 justify-between transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {/* Search on left side */}
-          <div className="relative max-w-md w-full group">
-            <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-hover:text-indigo-500 transition-colors duration-300" />
-            <input type="text" placeholder="Search courses..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 dark:text-gray-100" />
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 group-hover:w-full transition-all duration-500 ease-in-out"></div>
-            {searchTerm && <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">
-                <XIcon className="w-5 h-5" />
-              </button>}
-          </div>
-          {/* Category Filters on right side */}
-          <div className="flex overflow-x-auto gap-2 pb-2 md:pb-0">
-            {categories.map((category, index) => <button key={category.id} onClick={() => handleCategoryChange(category.id)} className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-500 ease-in-out flex items-center gap-2 hover-border-animation ${activeCategory === category.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md' : 'bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-800'}`} style={{
-            animationDelay: `${index * 100}ms`
-          }} disabled={animating}>
+        {/* Filter Bar Only */}
+        <div className={`flex flex-col md:flex-row gap-4 mb-8 justify-center transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="flex overflow-x-auto gap-2 pb-2 md:pb-0 justify-center w-full">
+            {categories.map((category, index) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all duration-500 ease-in-out flex items-center gap-2 hover-border-animation ${activeCategory === category.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md' : 'bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
+                style={{ animationDelay: `${index * 100}ms` }}
+                disabled={animating}
+              >
                 <div className={activeCategory === category.id ? 'text-white' : 'text-indigo-500 dark:text-indigo-400'}>
                   {category.icon}
                 </div>
                 <span>{category.name}</span>
-                <span className="border-left"></span>
-                <span className="border-right"></span>
-              </button>)}
+              </button>
+            ))}
           </div>
-          {/* Filter Count Badge - Only show when filtering */}
-          {searchTerm && <div className="py-2 px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium animate-fadeIn flex items-center md:hidden">
-              <FilterIcon className="w-4 h-4 mr-2" />
-              {filteredCourses.length}{' '}
-              {filteredCourses.length === 1 ? 'course' : 'courses'} found
-            </div>}
         </div>
         {/* Empty state when no courses match filter */}
         {filteredCourses.length === 0 && <div className="text-center py-12 bg-gray-50 dark:bg-slate-800/50 rounded-xl animate-fadeIn">

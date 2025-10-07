@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { SearchIcon, FilterIcon, BookIcon, ClockIcon, UsersIcon, StarIcon, ArrowRightIcon, CheckCircleIcon, ChevronDownIcon, TagIcon, XIcon, BarChartIcon, GraduationCapIcon, AwardIcon, BookOpenIcon, FileTextIcon, HeartIcon, ShieldIcon, BriefcaseIcon, BookmarkIcon, ChevronRightIcon } from 'lucide-react';
+import { FilterIcon, BookIcon, ClockIcon, UsersIcon, StarIcon, ArrowRightIcon, CheckCircleIcon, ChevronDownIcon, TagIcon, BarChartIcon, GraduationCapIcon, AwardIcon, BookOpenIcon, FileTextIcon, HeartIcon, ShieldIcon, BriefcaseIcon, BookmarkIcon, ChevronRightIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 const CoursesLawAcademic: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -283,7 +283,7 @@ const CoursesLawAcademic: React.FC = () => {
               Expert-Led Legal Education
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white animate-fadeInDown bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-white">
-              Law Academic Courses
+              আইন বিষয়ক একাডেমিক কোর্সসমূহ
             </h1>
             <p className="text-xl text-indigo-100 mb-10 animate-fadeInUp max-w-3xl mx-auto leading-relaxed">
               Build a strong foundation in legal studies with our comprehensive
@@ -380,17 +380,7 @@ const CoursesLawAcademic: React.FC = () => {
           </div>
           {/* Search and Category Filter */}
           <div className={`mb-16 transform transition-all duration-1000 delay-300 ${animatedElements.main ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex flex-col md:flex-row gap-6 mb-10 justify-between items-center">
-              <div className="relative max-w-md w-full group">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <SearchIcon className="w-5 h-5 text-gray-400 group-focus-within:text-indigo-500" />
-                </div>
-                <input type="text" placeholder="Search courses, instructors, or topics..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full pl-10 pr-12 py-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300" />
-                {searchTerm && <button onClick={() => setSearchTerm('')} className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                    <XIcon className="w-5 h-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" />
-                  </button>}
-              </div>
-            </div>
+            {/* Removed search bar, only category filter remains */}
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category, index) => <button key={category.id} onClick={() => setActiveCategory(category.id)} className={`px-6 py-3 rounded-xl transition-all duration-300 flex items-center space-x-2 ${activeCategory === category.id ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`} style={{
@@ -689,13 +679,12 @@ const CoursesLawAcademic: React.FC = () => {
               Limited Time Offer - 20% Off
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeIn">
-              Ready to Excel in Your Legal Studies?
+              আপনি কি আইন পড়াশোনায় এগিয়ে যেতে প্রস্তুত?
             </h2>
             <p className="text-xl mb-10 text-indigo-100 animate-fadeInUp max-w-2xl mx-auto leading-relaxed" style={{
             animationDelay: '200ms'
           }}>
-              Enroll in our academic courses today and take the first step
-              towards building a strong foundation for your legal career
+              আজই আমাদের একাডেমিক কোর্সে ভর্তি হয়ে আপনার আইনি ক্যারিয়ারের শক্ত ভিত গড়ে তুলুন!
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <button className="px-8 py-4 bg-white text-indigo-600 font-bold rounded-xl hover:shadow-lg hover:shadow-indigo-700/30 transition-all duration-300 animate-fadeIn flex items-center group" style={{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { ArrowRightIcon } from 'lucide-react';
-import { Users2Icon, BookOpenIcon, GraduationCapIcon, TrendingUpIcon } from 'lucide-react';
+import { UserCheckIcon, LayersIcon, UserCogIcon, AwardIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 // CountUp component for animating numbers
 const CountUp = ({
@@ -44,48 +44,53 @@ export const HeroSection: React.FC = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, []);
-  const stats = [{
-    value: 10000,
-    label: t('stats.students'),
-    icon: <Users2Icon className="w-7 h-7" />,
-    color: 'from-blue-500 to-cyan-400',
-    borderColor: 'border-blue-400 dark:border-blue-500',
-    bgColor: 'bg-blue-50 dark:bg-blue-900/20',
-    iconColor: 'text-blue-500 dark:text-blue-400',
-    glowColor: 'bg-blue-500/30',
-    hoverGradient: 'bg-gradient-to-br from-blue-500 to-cyan-400'
-  }, {
-    value: 50,
-    label: t('stats.courses'),
-    icon: <BookOpenIcon className="w-7 h-7" />,
-    color: 'from-violet-500 to-fuchsia-400',
-    borderColor: 'border-violet-400 dark:border-violet-500',
-    bgColor: 'bg-violet-50 dark:bg-violet-900/20',
-    iconColor: 'text-violet-500 dark:text-violet-400',
-    glowColor: 'bg-violet-500/30',
-    hoverGradient: 'bg-gradient-to-br from-violet-500 to-fuchsia-400'
-  }, {
-    value: 25,
-    label: t('stats.mentors'),
-    icon: <GraduationCapIcon className="w-7 h-7" />,
-    color: 'from-emerald-500 to-teal-400',
-    borderColor: 'border-emerald-400 dark:border-emerald-500',
-    bgColor: 'bg-emerald-50 dark:bg-emerald-900/20',
-    iconColor: 'text-emerald-500 dark:text-emerald-400',
-    glowColor: 'bg-emerald-500/30',
-    hoverGradient: 'bg-gradient-to-br from-emerald-500 to-teal-400'
-  }, {
-    value: 95,
-    label: t('stats.success'),
-    icon: <TrendingUpIcon className="w-7 h-7" />,
-    color: 'from-amber-500 to-orange-400',
-    borderColor: 'border-amber-400 dark:border-amber-500',
-    bgColor: 'bg-amber-50 dark:bg-amber-900/20',
-    iconColor: 'text-amber-500 dark:text-amber-400',
-    glowColor: 'bg-amber-500/30',
-    hoverGradient: 'bg-gradient-to-br from-amber-500 to-orange-400',
-    isPercentage: true
-  }];
+  const stats = [
+    {
+      value: 10000,
+      label: t('stats.students'),
+      icon: <UserCheckIcon className="w-7 h-7" />, // Changed icon
+      color: 'from-blue-500 to-cyan-400',
+      borderColor: 'border-blue-400 dark:border-blue-500',
+      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+      iconColor: 'text-blue-500 dark:text-blue-400',
+      glowColor: 'bg-blue-500/30',
+      hoverGradient: 'bg-gradient-to-br from-blue-500 to-cyan-400'
+    },
+    {
+      value: 50,
+      label: t('stats.courses'),
+      icon: <LayersIcon className="w-7 h-7" />, // Changed icon
+      color: 'from-violet-500 to-fuchsia-400',
+      borderColor: 'border-violet-400 dark:border-violet-500',
+      bgColor: 'bg-violet-50 dark:bg-violet-900/20',
+      iconColor: 'text-violet-500 dark:text-violet-400',
+      glowColor: 'bg-violet-500/30',
+      hoverGradient: 'bg-gradient-to-br from-violet-500 to-fuchsia-400'
+    },
+    {
+      value: 25,
+      label: t('stats.mentors'),
+      icon: <UserCogIcon className="w-7 h-7" />, // Changed icon
+      color: 'from-emerald-500 to-teal-400',
+      borderColor: 'border-emerald-400 dark:border-emerald-500',
+      bgColor: 'bg-emerald-50 dark:bg-emerald-900/20',
+      iconColor: 'text-emerald-500 dark:text-emerald-400',
+      glowColor: 'bg-emerald-500/30',
+      hoverGradient: 'bg-gradient-to-br from-emerald-500 to-teal-400'
+    },
+    {
+      value: 95,
+      label: t('stats.success'),
+      icon: <AwardIcon className="w-7 h-7" />, // Changed icon
+      color: 'from-amber-500 to-orange-400',
+      borderColor: 'border-amber-400 dark:border-amber-500',
+      bgColor: 'bg-amber-50 dark:bg-amber-900/20',
+      iconColor: 'text-amber-500 dark:text-amber-400',
+      glowColor: 'bg-amber-500/30',
+      hoverGradient: 'bg-gradient-to-br from-amber-500 to-orange-400',
+      isPercentage: true
+    }
+  ];
   return <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">

@@ -306,12 +306,10 @@ const ExamBatch: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white animate-fadeInDown">
-              Exam Batch Programs
+              এক্সাম ব্যাচ প্রোগ্রামস
             </h1>
             <p className="text-lg text-gray-200 mb-8 animate-fadeInUp">
-              Join our specialized exam batch programs designed to maximize your
-              success in law examinations. Expert guidance, comprehensive
-              materials, and structured preparation.
+              আইন পরীক্ষায় সফলতা নিশ্চিত করতে তৈরি আমাদের বিশেষ এক্সাম ব্যাচ প্রোগ্রামে যোগ দিন। অভিজ্ঞ শিক্ষকের দিকনির্দেশনা, পূর্ণাঙ্গ উপকরণ এবং সুশৃঙ্খল প্রস্তুতির সুযোগ।
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-fadeIn">
               <button className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 flex items-center group overflow-hidden relative cursor-pointer">
