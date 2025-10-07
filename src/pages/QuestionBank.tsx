@@ -318,11 +318,10 @@ const QuestionBank: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2">
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900 leading-tight">
-                Law Question Bank
+                আইন প্রশ্ন ব্যাংক
               </h1>
               <p className="text-xl text-gray-600 mb-10 max-w-xl">
-                Practice past papers, mock tests, and topic-wise questions to
-                strengthen your preparation.
+                আপনার প্রস্তুতি মজবুত করার জন্য অতীত বছরের প্রশ্নপত্র, মক টেস্ট এবং বিষয়ভিত্তিক প্রশ্ন চর্চা করুন।
               </p>
               {/* Search Bar */}
               <div className="relative max-w-xl">
